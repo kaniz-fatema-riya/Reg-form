@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+body {
+   background-color: whitesmoke
+}
+input, select{
+    border-radius: 5px;
+} 
