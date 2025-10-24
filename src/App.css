@@ -6,3 +6,7 @@ body {
 input, select{
     border-radius: 5px;
 } 
+::placeholder, select{
+    font-style: italic;
+    font-size: 12px;
+}

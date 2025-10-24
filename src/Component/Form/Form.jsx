@@ -3,18 +3,28 @@ import { use,useState } from 'react'
 
 
 function Form({countryLoading}) {
-    const Countries = use(countryLoading);
-    
-    
-     
+    const Countries = use(countryLoading); 
     const [country, setCountry] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    
+     const handleNameChange = (setter) => (e) => {
+     const inputValue = e.target.value;
+      if (/^[A-Za-z\s-]*$/.test(inputValue)) {
+      setter(inputValue);
    
+      }
+      };
+   
+
     function handleSubmit(e) {
         e.preventDefault();
         if(handleSubmit){
         alert('Form Submitted Successfully');
           
         }
+
+       
          
         const selectedCountry = Countries.find(c => c.name === country); 
         const dialCode = selectedCountry ? selectedCountry.dial_code : '';
@@ -25,8 +35,8 @@ function Form({countryLoading}) {
         e.target.email.value,
         dialCode + e.target.number.value,
         e.target.country.value,
-        e.target.city.value
-        );
+        e.target.city.value);
+
         e.target.reset();
         
 
@@ -38,8 +48,8 @@ function Form({countryLoading}) {
         <p className='text-center'>Fill the form below to register</p>
         <form onSubmit= {handleSubmit} className="flex flex-col gap-4   ">
         
-        <input type="text"  name="firstName" placeholder="First Name" maxLength="50" className="border p-2 " required />
-        <input type="text" name="lastName" placeholder="Last Name" maxLength="50" className="border p-2 " required/>
+        <input  value={firstName} onChange={handleNameChange(setFirstName)} type="text"  name="firstName" placeholder="First Name" pattern="[A-Za-z\s-]+" maxLength="50" className="border p-2 " required />
+        <input value={lastName} onChange={handleNameChange(setLastName)} type="text" name="lastName" placeholder="Last Name" maxLength="50" className="border p-2 " required/>
         <input type="email" name="email"  placeholder="Email" className="border p-2 " required />
 
         {/* Number with Country Code */}
@@ -58,7 +68,7 @@ function Form({countryLoading}) {
         </div>
 
         <input type="text" name="country" placeholder="Country" className="border p-2 " required />
-        <input type="text" name="city" placeholder="City" className="border p-2" />
+        <input type="text" name="city" maxLength="100" placeholder="City" className="border p-2" />
         
        
         <div className="flex flex-col">
