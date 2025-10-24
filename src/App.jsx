@@ -1,6 +1,8 @@
 import './App.css'
 import React, { Suspense } from 'react'
 import Form from './Component/Form/Form.jsx'
+import Image from './Component/Form/Image.jsx'
+
 
 function App() {
 
@@ -11,10 +13,12 @@ function App() {
 
   return (
     <>
-  
+    
+  <div className='flex flex-row'>
+  <Image></Image>
   <Suspense fallback={<h1 className='text-center'>Loading...</h1>}>
   <Form countryLoading ={countryLoading}></Form>
-  </Suspense>
+  </Suspense></div>
     
     </>
   )
