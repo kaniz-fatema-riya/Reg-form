@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
 body {
-   background-color: #fffbeb ;
+  background-color: #fffbeb;
 }
-input{
-    border-radius: 5px;
-    border: 1px solid #deb887
-} 
-select{
-  border: 1px solid #deb887
+input {
+  border-radius: 5px;
+  border: 1px solid #deb887;
 }
-::placeholder, select{
-    font-style: italic;
-    font-size: 12px;
+select {
+  border: 1px solid #deb887;
 }
-#phoneInput{
-   border-radius: 0 5px 5px 0;
-   border-left: none;
- }
+::placeholder,
+select {
+  font-style: italic;
+  font-size: 12px;
+}
+#phoneInput {
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+}
